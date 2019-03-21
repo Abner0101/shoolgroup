@@ -1,0 +1,1 @@
+window.hosts = 'http://www.clubs.org/index.php/'
