@@ -9,7 +9,7 @@ class Member extends Common
         'status' => 1,
     ];
     protected $deleteTime = 'delete_time';
-    protected $hidden = ['create_time','update_time','delete_time','m_password'];
+    protected $hidden = ['m_password'];
     protected $createTime = 'create_time';
     protected $updateTime = 'update_time';
     protected $autoWriteTimestamp = true;

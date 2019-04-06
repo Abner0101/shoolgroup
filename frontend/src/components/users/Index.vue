@@ -143,8 +143,9 @@
 
             <div class="indexMain_right">
                 <div class="indexMain_rightCon">
-                    <a href="" class="newMsg">创建社团</a>
-                    <a href="" class="newMsg">加入社团</a>
+                    <router-link to="/Clubcreate"><a class="newMsg">创建社团</a></router-link>
+                    <a class="newMsg">加入社团</a>
+                    <a class="newMsg">申请退团</a>
                     <div class="pwfb">
                         <div class="pwfbHead">
                             社团福利

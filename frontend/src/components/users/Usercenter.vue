@@ -31,6 +31,7 @@
     import vMypost from './common/usercenter/Mypost.vue'
     import vMymessage from './common/usercenter/Mymessage.vue'
     import vMyask from './common/usercenter/Myask.vue'
+    // import Bus from '../../assets/js/bus.js'
     export default {
         name:'Usercenter',
         data() {
@@ -40,6 +41,14 @@
                 showPost:false,
                 showMessage:false,
                 showAsk:false
+            }
+        },
+        created(){
+
+        },
+        mounted(){
+            if(this.$store.state.showAsking){
+                this.isAsk();
             }
         },
         methods: {
@@ -77,8 +86,7 @@
                 this.showPost=false;
                 this.showMessage=false;
                 this.showAsk=true; 
-            }
-
+            },
         },
         components: {
             vHeader,

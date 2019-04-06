@@ -55,7 +55,9 @@ class Common extends Model
 		}
 		// if(isset($param['callback']))
 		// 	unset($param['callback']);
+
 		$this->startTrans();
+		
 		try {
 			// $this->data($param)->allowField(true)->save();
 			$this->allowField(true)->save($param);

@@ -36,7 +36,7 @@
                   this.apiGet('http://www.clubs.org/index.php/' +  'getMember',{params}).then((res) => {
                     if(res.code == 200){
                       this.memberMes=res.data;
-                      console.log(this.memberMes);
+                      // console.log(this.memberMes);
                       this.editImgSrc = this.imgUrl + res.data.m_img;
                     }else{
                        this.common.toastMsg('信息出错','warn');

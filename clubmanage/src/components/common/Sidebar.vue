@@ -44,6 +44,22 @@
                         title: '系统首页'
                     },
                     {
+                        icon: 'el-icon-lx-notification',
+                        index: '2',
+                        title: '活动管理',
+                        subs: [
+                            {
+                                index: 'actionlist',
+                                title: '活动列表'
+                            },
+                            {
+                                index: 'actionask',
+                                title: '活动申请'
+                            }
+                        ]
+                    },
+                    
+                    {
                         icon: 'el-icon-lx-cascades',
                         index: 'table',
                         title: '基础表格'

@@ -8,11 +8,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '../src/assets/css/reset.css'
 import common from './assets/js/common.js'
 import VueResource from 'vue-resource'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueResource)
-
+//跨域解决
+Vue.http.options.credentials = true
 // 设置全局公用方法
 Vue.prototype.common = common;
 
@@ -24,5 +26,6 @@ Vue.http.headers.common['sessionid'] = sessionStorage.getItem('sessionId')
 new Vue({
   el: '#app',
   router,
+  store,//使用store
   render: h => h(App)
 })

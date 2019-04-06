@@ -20,6 +20,16 @@ export default new Router({
                     meta: { title: '系统首页' }
                 },
                 {
+                    path: '/actionask',
+                    component: resolve => require(['../components/page/Actionask.vue'], resolve),
+                    meta: { title: '活动申请' }
+                },
+                {
+                    path: '/actionlist',
+                    component: resolve => require(['../components/page/Actionlist.vue'], resolve),
+                    meta: { title: '活动列表' }
+                },
+                {
                     path: '/icon',
                     component: resolve => require(['../components/page/Icon.vue'], resolve),
                     meta: { title: '自定义图标' }

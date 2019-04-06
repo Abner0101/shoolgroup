@@ -42,5 +42,15 @@ export default{
             }
         }
         return flag;
+    },
+    toDate(date){
+        let a = new Date(date*1000);
+        let YY = a.getFullYear();
+        let MM = a.getMonth()+1;
+        let DD = a.getDate();
+        let time= YY + "-" + MM + "-" + DD;
+        return time;
     }
+    
+
 }

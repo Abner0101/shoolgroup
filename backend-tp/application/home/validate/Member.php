@@ -14,6 +14,6 @@ class Member extends BaseValidate{
     protected $message = array(
         'm_number.unique'       => '该账号已存在',
         'm_phone.isMobile'      =>'手机格式输入错误',
-        'm_phone.unique'        =>'该账号已存在'
+        'm_phone.unique'        =>'该手机号已注册'
     );
 }

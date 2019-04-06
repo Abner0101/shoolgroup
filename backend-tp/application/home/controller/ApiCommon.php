@@ -22,7 +22,7 @@ class ApiCommon extends Common
         $authKey = $header['authkey'];
         $sessionId = $header['sessionid'];
         $cache = cache('Auth_'.$authKey);
-
+        // dump($authKey);die;
         // return ['error' => $authKey];
         
         // 校验sessionid和authKey

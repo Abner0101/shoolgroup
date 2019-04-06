@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">后台管理系统</div>
+        <div class="logo">{{headername}}/后台管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -51,12 +51,13 @@
                 collapse: false,
                 fullscreen: false,
                 name: 'linxin',
-                message: 2
+                message: 2,
+                headername:''
             }
         },
         computed:{
             username(){
-                let username = localStorage.getItem('ms_username');
+                let username = localStorage.getItem('m_name');
                 return username ? username : this.name;
             }
         },
@@ -64,7 +65,12 @@
             // 用户名下拉菜单选择事件
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
+                    localStorage.removeItem('m_name');
+                    localStorage.removeItem('authKey');
+                    localStorage.removeItem('sessionId');
+                    localStorage.removeItem('m_id');
+                    localStorage.removeItem('departId');
+                    localStorage.removeItem('right');
                     this.$router.push('/login');
                 }
             },
@@ -99,12 +105,25 @@
                     }
                 }
                 this.fullscreen = !this.fullscreen;
+            },
+            getClubMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getClub',{params:{id:localStorage.getItem('departId')}})
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        this.headername=ret.data.c_name;
+                    }else{
+                        this.common.handleError();
+                    }
+                })
             }
         },
         mounted(){
             if(document.body.clientWidth < 1500){
                 this.collapseChage();
             }
+            this.getClubMes();
         }
     }
 </script>

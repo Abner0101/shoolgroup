@@ -4,6 +4,7 @@ import Login from '../components/users/Login.vue'
 import Index from '../components//users/Index.vue'
 import Usercenter from '../components/users/Usercenter.vue'
 import Topic from '../components/users/Topic.vue'
+import Clubcreate from '../components/users/Clubcreate.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ const router = new Router({
       path: '/Topic',
       name: 'Topic',
       component: Topic
+    },
+    {
+      path:'/Clubcreate',
+      name:'Clubcreate',
+      component: Clubcreate
     }
   ]
 })

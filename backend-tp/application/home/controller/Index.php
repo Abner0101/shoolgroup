@@ -36,30 +36,10 @@ class Index extends Common
             return resultArray($result);
     }
 
-    public function getCateById(){
+    public function getClubbyId(){
         $param = $this->param;
-        $cateModel = model('Cate');
-        $result = $cateModel->getDataById($param);
-        // p($result);
-        if(isset($param['callback']))
-            return resultJsonp($result);
-        else
-            return resultArray($result);
-    }
-    public function getItemById(){
-        $param = $this->param;
-        $itemModel = model('Item');
-        $result = $itemModel->getDataById($param);
-        if(isset($param['callback']))
-            return resultJsonp($result);
-        else
-            return resultArray($result);
-    }
-
-    public function getJobbyId(){
-        $param = $this->param;
-        $jobModel = model('Jobs');
-        $result = $jobModel->getDataById($param);
+        $clubModel = model('Club');
+        $result = $clubModel->getDataById($param);
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);
@@ -67,10 +47,10 @@ class Index extends Common
             return resultArray($result);
     }
 
-    public function getAllJob(){
+    public function getAllclub(){
         $param = $this->param;
-        $jobModel = model('Jobs');
-        $result = $jobModel->getAllDatas();
+        $clubModel = model('Club');
+        $result = $clubModel->getAllDatas();
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);
@@ -78,10 +58,10 @@ class Index extends Common
             return resultArray($result);
     }
 
-    public function getRecbyId(){
+    public function getTablebyId(){
         $param = $this->param;
-        $RecModel = model('Recruitment');
-        $result = $RecModel->getDataById($param);
+        $tableModel = model('Table');
+        $result = $clubModel->getDataById($param);
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);
@@ -89,15 +69,17 @@ class Index extends Common
             return resultArray($result);
     }
 
-    public function getAllRec(){
+    public function getAlltable(){
         $param = $this->param;
-        $RecModel = model('Recruitment');
-        $result = $RecModel->getAllDatas();
+        $tableModel = model('Table');
+        $result = $clubModel->getAllDatas();
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);
         else
             return resultArray($result);
     }
+
+   
 
 }

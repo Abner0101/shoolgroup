@@ -8,21 +8,30 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import "babel-polyfill";
+import common from './assets/js/common.js'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, {
     size: 'small'
 });
 Vue.prototype.$axios = axios;
+// 设置全局请求头
+axios.defaults.headers.authKey = localStorage.getItem('c_authKey')
+axios.defaults.headers.sessionId = localStorage.getItem('c_sessionId')
+//跨域解决
+axios.defaults.withCredentials = true
+
+// 设置全局公用方法
+Vue.prototype.common = common;
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
-    const role = localStorage.getItem('ms_username');
+    const role = localStorage.getItem('right');
     if (!role && to.path !== '/login') {
         next('/login');
     } else if (to.meta.permission) {
         // 如果是管理员权限则可进入，这里只是简单的模拟管理员权限而已
-        role === 'admin' ? next() : next('/403');
+        role === '1' ? next() : next('/403');
     } else {
         // 简单的判断IE10及以下不进入富文本编辑器，该组件不兼容
         if (navigator.userAgent.indexOf('MSIE') > -1 && to.path === '/editor') {

@@ -48,7 +48,8 @@ export default{
 		        window.open(routeData.href, '_self');
             },1000); 
 	        
-		}
+		},
+		
 			
 	}
 }
