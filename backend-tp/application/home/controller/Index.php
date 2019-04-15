@@ -61,7 +61,7 @@ class Index extends Common
     public function getTablebyId(){
         $param = $this->param;
         $tableModel = model('Table');
-        $result = $clubModel->getDataById($param);
+        $result = $tableModel->getDataById($param);
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);
@@ -72,7 +72,74 @@ class Index extends Common
     public function getAlltable(){
         $param = $this->param;
         $tableModel = model('Table');
-        $result = $clubModel->getAllDatas();
+        $result = $tableModel->getAllDatas();
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getLikebyId(){
+        $param = $this->param;
+        $likeModel = model('Like');
+        $result = $likeModel->getDataById($param);
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getAllLike(){
+        $param = $this->param;
+        $likeModel = model('Like');
+        $result = $likeModel->getAllDatas();
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+
+    public function getCommentbyId(){
+        $param = $this->param;
+        $commentModel = model('Comment');
+        $result = $commentModel->getDataById($param);
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getAllComment(){
+        $param = $this->param;
+        $commentModel = model('Comment');
+        $result = $commentModel->getAllDatas();
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getOtherCommentbyId(){
+        $param = $this->param;
+        $commentModel = model('Othercomment');
+        $result = $commentModel->getDataById($param);
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getAllOtherComment(){
+        $param = $this->param;
+        $commentModel = model('Othercomment');
+        $result = $commentModel->getAllDatas();
         // p($result);
         if(isset($param['callback']))
             return resultJsonp($result);

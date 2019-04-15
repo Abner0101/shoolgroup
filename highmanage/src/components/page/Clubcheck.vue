@@ -23,7 +23,7 @@
                     <div class="item-title">审核通过</div>
                     <draggable v-model="pass" @remove="removeHandle" :options="dragOptions">
                         <transition-group tag="div" id="审核通过" class="item-ul">
-                            <div v-for="item in pass" class="drag-list" :key="item.id">
+                            <div v-for="item in pass" class="drag-list" :key="item.id" >
                                 {{item.c_name}}
                             </div>
                         </transition-group>
@@ -33,7 +33,7 @@
                     <div class="item-title">审核不通过</div>
                     <draggable v-model="nopass" @remove="removeHandle" :options="dragOptions">
                         <transition-group tag="div" id="审核不通过" class="item-ul">
-                            <div v-for="item in nopass" class="drag-list" :key="item.id">
+                            <div v-for="item in nopass" class="drag-list" :key="item.id" >
                                 {{item.c_name}}
                             </div>
                         </transition-group>
@@ -184,29 +184,31 @@
             //审核通过
             Passcheck(Askmess){
                 // console.log(Askmess);
-                let params={
-                    id:Askmess.id,
-                    c_boss:Askmess.c_createrId.m_name,
-                    ispass:1
+                let table={
+                    t_name:Askmess.c_createrId.m_name,
+                    station:1,
+                    role:"会长",
+                    memberId:Askmess.c_createrId.id,
+                    clubId:Askmess.id,
+                    t_time:this.common.getNowtime()
                 };
                 
-                this.$axios
-                .post('http://www.clubs.org/index.php/' + 'M_editClub',params)
+                this.$axios.post('http://www.clubs.org/index.php/' + 'M_addTable',table)
                 .then((res)=>{
                     let ret=res.data;
                     console.log(ret);
                     if(ret.code==200){ 
                         const that = this; //指向全局的this
-                        this.$axios.all([this.addTable(),this.editMember()])//并发请求
-                        .then(this.$axios.spread((table,member)=>{
-                            let tableres=table.data;
+                        this.$axios.all([this.editClub(),this.editMember()])//并发请求
+                        .then(this.$axios.spread((club,member)=>{
+                            let clubres=club.data;
                             let memberres=member.data;
-                            console.log(tableres);
+                            console.log(clubres);
                             console.log(memberres);
-                            if(tableres.code==200 && memberres.code==200){
+                            if(clubres.code==200 && memberres.code==200){
                                 this.dialogFormVisible=false;
                                 that.common.toastMsg('审核通过','success');
-                            }else if(tableres.code==101 || memberres.code==101){
+                            }else if(clubres.code==101 || memberres.code==101){
                                 that.handleError();
                             }else{
                                 that.common.toastMsg("数据出错",'warning');
@@ -226,15 +228,24 @@
                 });
             },
 
-            addTable(){
-                let table={
-                    t_name:this.Askmess.c_createrId.m_name,
-                    station:1,
-                    role:"会长",
-                    memberId:this.Askmess.c_createrId.id,
-                    clubId:this.Askmess.id
+            // addTable(){
+            //     let table={
+            //         t_name:this.Askmess.c_createrId.m_name,
+            //         station:1,
+            //         role:"会长",
+            //         memberId:this.Askmess.c_createrId.id,
+            //         clubId:this.Askmess.id,
+            //         t_time:this.common.getNowtime()
+            //     };
+            //     return this.$axios.post('http://www.clubs.org/index.php/' + 'M_addTable',table);
+            // },
+            editClub(){
+                let params={
+                    id:this.Askmess.id,
+                    c_boss:this.Askmess.c_createrId.m_name,
+                    ispass:1
                 };
-                return this.$axios.post('http://www.clubs.org/index.php/' + 'M_addTable',table);
+                return this.$axios.post('http://www.clubs.org/index.php/' + 'M_editClub',params);
             },
 
             editMember(){

@@ -5,9 +5,7 @@ use traits\model\SoftDelete;
 class Member extends Common
 {
     use SoftDelete;
-    protected $insert = [
-        'status' => 1,
-    ];
+
     protected $deleteTime = 'delete_time';
     protected $hidden = ['m_password'];
     protected $createTime = 'create_time';

@@ -22,6 +22,7 @@ class ApiCommon extends Common
         $authKey = $header['authkey'];
         $sessionId = $header['sessionid'];
         $cache = cache('Manage_'.$authKey);
+
         // dump($sessionId);die;
 
         // return ['error' => $sessionId ."+". $cache['sessionId']];
@@ -41,7 +42,7 @@ class ApiCommon extends Common
             exit(json_encode(['code'=>103, 'error'=>'账号已被删除或禁用']));   
         }
         // 更新缓存
-        cache('Auth_'.$authKey, $cache);
+        cache('Manage_'.$authKey, $cache);
         // $authAdapter = new AuthAdapter($authKey);
         // $request = Request::instance();
         // $ruleName = $request->module().'-'.$request->controller() .'-'.$request->action(); 

@@ -40,7 +40,7 @@ class ApiCommon extends Common
             exit(json_encode(['code'=>103, 'error'=>'账号已被删除或禁用']));   
         }
         // 更新缓存
-        cache('Auth_'.$authKey, $cache);
+        cache('Club_'.$authKey, $cache);
         // $authAdapter = new AuthAdapter($authKey);
         // $request = Request::instance();
         // $ruleName = $request->module().'-'.$request->controller() .'-'.$request->action(); 

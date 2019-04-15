@@ -6,7 +6,7 @@
                 <ul>
                     <li v-bind:class="{ on: showMyhome}"><a @click="isMyhome">我的主页</a></li>
                     <li v-bind:class="{ on: showSet}"><a @click="isSet">基本设置</a></li>
-                    <li v-bind:class="{ on: showPost}"><a @click="isPost">我的贴子</a></li>
+                    <li v-bind:class="{ on: showPost}"><a @click="isPost">公告信息</a></li>
                     <li v-bind:class="{ on: showMessage}"><a @click="isMessage">我的消息</a></li>
                     <li v-bind:class="{ on: showAsk}"><a @click="isAsk">申请详情</a></li>
                 </ul>

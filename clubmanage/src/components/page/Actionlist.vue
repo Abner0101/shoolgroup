@@ -2,7 +2,7 @@
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-calendar"></i> 活动管理</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 活动管理</el-breadcrumb-item>
                 <el-breadcrumb-item>活动列表</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
@@ -255,6 +255,7 @@
                     params.append('a_content',this.ruleForm.a_content);
                     params.append('beizhu',this.ruleForm.beizhu);
                     params.append('id',this.ruleForm.id);
+                    params.append('ispass',2);
                     this.$axios
                     .post('http://www.clubs.org/index.php/' + 'editAction',params,config)
                     .then((res)=>{

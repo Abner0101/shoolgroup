@@ -29,36 +29,6 @@ class Base extends Common
     }
 
 
-  
-
-    public function logout(){
-        /*获取头部信息*/ 
-        $header = Request::instance()->header();
-        $authKey = $header['authkey'];
-        $sessionId = $header['sessionid'];
-        $cache = cache('Auth_'.$authKey);
-        if(empty($authKey) || empty($cache)){
-            if(isset($param['callback']))
-                return resultJsonp(['error'=>'参数有误，退出失败']);
-            else
-                return resultArray(['error'=>'参数有误，退出失败']);
-        }else{
-            if($cache['sessionId'] == $sessionId){
-                cache('Auth_'.$authKey, null);
-                if(isset($param['callback']))
-                    return resultJsonp(['data' => '退出成功']);
-                else
-                    return resultArray(['data'=> '退出成功']);
-            }else{
-                if(isset($param['callback']))
-                    return resultJsonp(['error'=>'非法操作，退出失败']);
-                else
-                    return resultArray(['error'=>'非法操作，退出失败']);
-            }
-        }
-    }
-
-
 
 
 }

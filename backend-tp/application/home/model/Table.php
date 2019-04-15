@@ -17,6 +17,7 @@ class Table extends Common
     }
 
     public function editData($param, $id){
+        $param['station'] = 2;
         return parent::editData($param, $id);
     }
     public function delData($param){

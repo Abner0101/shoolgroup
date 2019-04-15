@@ -48,7 +48,7 @@ class Action extends Common
     }
 
     public function delData($param){
-        return parent::delData($param);
+        return parent::delDataTrue($param);
     }
 
 }

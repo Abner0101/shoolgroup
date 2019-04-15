@@ -22,7 +22,7 @@
                     <div class="item-title">审核通过</div>
                     <draggable v-model="pass" @remove="removeHandle" :options="dragOptions">
                         <transition-group tag="div" id="审核通过" class="item-ul">
-                            <div v-for="item in pass" class="drag-list" :key="item.id">
+                            <div v-for="item in pass" class="drag-list" :key="item.id" @click="Check(item)">
                                 {{item.a_theme}}
                             </div>
                         </transition-group>
@@ -32,7 +32,7 @@
                     <div class="item-title">审核不通过</div>
                     <draggable v-model="nopass" @remove="removeHandle" :options="dragOptions">
                         <transition-group tag="div" id="审核不通过" class="item-ul">
-                            <div v-for="item in nopass" class="drag-list" :key="item.id">
+                            <div v-for="item in nopass" class="drag-list" :key="item.id" @click="Check(item)">
                                 {{item.a_theme}}
                             </div>
                         </transition-group>

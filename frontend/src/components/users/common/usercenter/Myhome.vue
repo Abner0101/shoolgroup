@@ -1,15 +1,15 @@
 <template>
     <div>
         <div class="home_self"><img :src="editImgSrc" alt=""></div>
-            <!--男性为male，女性为female-->
-            <div class="home_name" v-if="memberMes.m_sex==='女'"><p class="female">{{memberMes.m_name}}</p></div>
-            <div class="home_name" v-if="memberMes.m_sex==='男'"><p class="male">{{memberMes.m_name}}</p></div>
-            <div class="home_msg">
-                <ul>
-                    <li>{{memberMes.m_birthday}}</li>
-                    <li>{{memberMes.m_class}}</li>
-                </ul>
-            </div>
+        <!--男性为male，女性为female-->
+        <div class="home_name" v-if="memberMes.m_sex==='女'"><p class="female">{{memberMes.m_name}}</p></div>
+        <div class="home_name" v-if="memberMes.m_sex==='男'"><p class="male">{{memberMes.m_name}}</p></div>
+        <div class="home_msg">
+            <ul>
+                <li>{{memberMes.m_birthday}}</li>
+                <li>{{memberMes.m_class}}</li>
+            </ul>
+        </div>
     </div>
 </template>
 

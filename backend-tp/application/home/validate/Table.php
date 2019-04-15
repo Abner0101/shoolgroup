@@ -13,6 +13,6 @@ class Table extends Validate
     );
     protected $message = array(
         'role.require'          => '申请角色必须填写',
-        'memberId.unique'      => '您已有社团申请，不可再申请'
+        'memberId.unique'      => '您已有社团申请或已加社团，不可再申请'
     );
 }

@@ -38,5 +38,13 @@ export default{
         let DD = a.getDate();
         let time= YY + "-" + MM + "-" + DD;
         return time;
+    },
+    getNowtime(){
+        let a = new Date();
+        let YY = a.getFullYear();
+        let MM = a.getMonth()+1;
+        let DD = a.getDate();
+        let time= YY + "-" + MM + "-" + DD;
+        return time;
     }
 }

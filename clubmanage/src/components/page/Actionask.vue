@@ -2,24 +2,29 @@
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-calendar"></i> 活动管理</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 活动管理</el-breadcrumb-item>
                 <el-breadcrumb-item>活动申请</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container" v-if="showask">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
-                <el-form-item label="活动主题" prop="a_theme">
+                <el-form-item label="公告主题" prop="a_theme">
                     <el-input v-model="ruleForm.a_theme"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="活动性质" prop="a_nature">
+                <el-form-item label="公告性质" prop="a_nature">
                     <el-select v-model="ruleForm.a_nature" placeholder="请选择活动性质">
                       <el-option label="比赛" value="比赛"></el-option>
                       <el-option label="招新" value="招新"></el-option>
                       <el-option label="服务" value="服务"></el-option>
                       <el-option label="课外" value="课外"></el-option>
+                      <el-option label="表演" value="表演"></el-option>
+                      <el-option label="回顾" value="回顾"></el-option>
+                      <el-option label="声明" value="声明"></el-option>
+                      <el-option label="活动" value="活动"></el-option>
+                      <el-option label="晚会" value="晚会"></el-option>
                     </el-select>
                 </el-form-item>
 
@@ -34,7 +39,7 @@
                     </el-upload>
                 </el-form-item>
 
-                <el-form-item label="活动内容" prop="a_content">
+                <el-form-item label="公告内容" prop="a_content">
                 <quill-editor ref="myTextEditor" v-model="ruleForm.a_content" :options="editorOption"></quill-editor>
                 </el-form-item>
                 

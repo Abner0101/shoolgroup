@@ -47,7 +47,7 @@
                       </el-col>
                     </el-form-item>
 
-                    <el-form-item label="所属社团">
+                    <el-form-item label="社团权限ID">
                       <el-col :span="11">
                         <el-input v-model="memberMes.depart" :disabled="true"></el-input>
                       </el-col>

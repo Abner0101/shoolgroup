@@ -29,7 +29,7 @@
                       <p>姓名: {{ scope.row.c_createrId.m_name}}</p>
                       <p>学号: {{ scope.row.c_createrId.m_number }}</p>
                       <p>性别: {{ scope.row.c_createrId.m_sex }}</p>
-                      <p>学号: {{ scope.row.c_createrId.m_number }}</p>
+                      <p>手机: {{ scope.row.c_createrId.m_phone }}</p>
                       <p>届时: {{ scope.row.c_createrId.m_grade }}</p>
                       <p>班级: {{ scope.row.c_createrId.m_class }}</p>
                       <div slot="reference" class="name-wrapper">

@@ -34,10 +34,25 @@ Route::get('delClub','home/Club/delClub'); //删除社团信息
 Route::get('getAllClub','home/index/getAllclub'); //获取社团列表
 
 Route::post('joinClub','home/Table/addTable');//申请加入社团
-Route::post('editTable','home/Table/editTable');//编辑社团信息
+Route::post('editTable','home/Table/editTable');//编辑加入社团表信息
 Route::get('delTable','home/Table/delTable');//删除、退出社团
 Route::get('getTable','home/index/getTablebyId');//获取申请表信息
 Route::get('getAllTable','home/index/getAlltable');//获取申请表列表
+
+Route::post('addLike','home/Like/addLike');//感兴趣
+Route::get('delLike','home/Like/delLike');//不感兴趣
+Route::get('getLike','home/index/getLikebyId');
+Route::get('getAllLike','home/index/getAllLike');
+
+Route::post('addComment','home/Comment/addComment');//添加评论
+Route::get('delComment','home/Comment/delComment');//删除评论
+Route::get('getComment','home/index/getCommentbyId');//获取评论
+Route::get('getAllComment','home/index/getAllComment');//获取评论列表
+
+Route::post('addOtherComment','home/Othercomment/addOtherComment');
+Route::get('delOtherComment','home/Othercomment/delOtherComment');
+Route::get('getOtherComment','home/index/getOtherCommentbyId');
+Route::get('getAllOtherComment','home/index/getAllOtherComment');
 
 
 //社团管理后台
@@ -47,6 +62,9 @@ Route::post('editAction','club/action/editAction');//编辑活动
 Route::get('delAction','club/action/delAction');//取消活动
 Route::get('getAction','club/index/getActionById');//获取活动信息
 Route::get('getAllAction','club/index/getAllAction');//获取活动列表
+Route::post('C_editTable','club/table/editTable');//编辑加入社团表信息
+Route::get('C_delTable','club/table/delTable');//删除、退出社团
+Route::post('C_editMember','club/member/editMember');//编辑会员信息
 
 
 //超级管理员后台

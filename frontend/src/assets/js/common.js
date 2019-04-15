@@ -50,7 +50,31 @@ export default{
         let DD = a.getDate();
         let time= YY + "-" + MM + "-" + DD;
         return time;
-    }
+    },
+    toGetTime(){
+        let a = new Date();
+        let YY = a.getFullYear();
+        let MM = a.getMonth()+1;
+        let DD = a.getDate();
+        let HH = a.getHours();
+        let Min = a.getMinutes();
+        let SS = a.getSeconds();
+
+        let time= YY + "-" + MM + "-" + DD + " " + HH + ":" + Min + ":" + SS;
+        return time;
+    },
+    toDateTime(date){
+        let a = new Date(date*1000);
+        let YY = a.getFullYear();
+        let MM = a.getMonth()+1;
+        let DD = a.getDate();
+        let HH = a.getHours();
+        let Min = a.getMinutes();
+        let SS = a.getSeconds();
+        let time= YY + "-" + MM + "-" + DD + " " + HH + ":" + Min + ":" + SS;
+        return time;
+    },
+
     
 
 }

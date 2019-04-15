@@ -30,6 +30,21 @@ export default new Router({
                     meta: { title: '活动列表' }
                 },
                 {
+                    path: '/memberlist',
+                    component: resolve => require(['../components/page/Memberlist.vue'], resolve),
+                    meta: { title: '会员列表' }
+                },
+                {
+                    path: '/memberjoin',
+                    component: resolve => require(['../components/page/Memberjoin.vue'], resolve),
+                    meta: { title: '入团审核' }
+                },
+                {
+                    path: '/usercenter',
+                    component: resolve => require(['../components/page/Usercenter.vue'], resolve),
+                    meta: { title: '权限管理' }
+                },
+                {
                     path: '/icon',
                     component: resolve => require(['../components/page/Icon.vue'], resolve),
                     meta: { title: '自定义图标' }

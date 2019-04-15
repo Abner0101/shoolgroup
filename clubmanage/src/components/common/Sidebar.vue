@@ -45,18 +45,39 @@
                     },
                     {
                         icon: 'el-icon-lx-notification',
-                        index: '2',
-                        title: '活动管理',
+                        index: 'action',
+                        title: '公告管理',
                         subs: [
                             {
                                 index: 'actionlist',
-                                title: '活动列表'
+                                title: '公告列表'
                             },
                             {
                                 index: 'actionask',
-                                title: '活动申请'
+                                title: '公告申请'
                             }
                         ]
+                    },
+                    {
+                        icon: 'el-icon-lx-friend',
+                        index: 'members',
+                        title: '会员管理',
+                        subs: [
+                            {
+                                index: 'memberlist',
+                                title: '会员列表'
+                            },
+                            {
+                                index: 'memberjoin',
+                                title: '入团审核'
+                            }
+                        ]
+                    },
+
+                    {
+                        icon: 'el-icon-lx-profile',
+                        index: 'usercenter',
+                        title: '权限管理'
                     },
                     
                     {
