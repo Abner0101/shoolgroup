@@ -23,19 +23,19 @@
                     <span class="btn-bell-badge" v-if="message"></span>
                 </div>
                 <!-- 用户头像 -->
-                <div class="user-avator"><img src="../../assets/img/img.jpg"></div>
+                <div class="user-avator"><img :src="memberMes.m_img"></div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click" @command="handleCommand">
                     <span class="el-dropdown-link">
                         {{username}} <i class="el-icon-caret-bottom"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                        <a href="http://blog.gdfengshuo.com/about/" target="_blank">
+                        <!-- <a href="http://blog.gdfengshuo.com/about/" target="_blank">
                             <el-dropdown-item>关于作者</el-dropdown-item>
                         </a>
                         <a href="https://github.com/lin-xin/vue-manage-system" target="_blank">
                             <el-dropdown-item>项目仓库</el-dropdown-item>
-                        </a>
+                        </a> -->
                         <el-dropdown-item divided  command="loginout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -52,7 +52,9 @@
                 fullscreen: false,
                 name: 'linxin',
                 message: 2,
-                headername:''
+                headername:'',
+                imgUrl:'http://www.clubs.org',
+                memberMes:''
             }
         },
         computed:{
@@ -114,7 +116,20 @@
                     if(ret.code==200){
                         this.headername=ret.data.c_name;
                     }else{
-                        this.common.handleError();
+                        this.common.toastMsg(ret.error,'error'); 
+                    }
+                })
+            },
+            getMemberMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getMember',{params:{id:localStorage.getItem('m_id')}})
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        ret.data.m_img=this.imgUrl+ret.data.m_img;
+                        this.memberMes=ret.data;
+                    }else{
+                        this.common.toastMsg(ret.error,'error'); 
                     }
                 })
             }
@@ -124,6 +139,7 @@
                 this.collapseChage();
             }
             this.getClubMes();
+            this.getMemberMes();
         }
     }
 </script>

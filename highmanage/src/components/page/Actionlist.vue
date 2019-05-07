@@ -79,6 +79,10 @@
                       size="mini"
                       type="danger"
                       @click="handleDelete(scope.$index, scope.row)">删除活动</el-button>
+                    <el-button
+                      size="mini"
+                      type="warning"
+                      @click="handleComment(scope.$index, scope.row)" v-if="scope.row.ispass==1">查看评论</el-button>
                   </template>
                 </el-table-column>
             </el-table>
@@ -229,6 +233,12 @@
             // NoShow(row){
 
             // },
+            handleComment(index,row){
+                this.$router.push({
+                    path:'commentlist',
+                    query:{id:row.id}
+                });
+            },
             handleMore(index, row){
                 this.dialogFormVisible=true;
                 this.addImg=this.imgUrl+row.coverimg;

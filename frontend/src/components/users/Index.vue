@@ -72,7 +72,7 @@
                             社团列表
                         </div>
                         <div class="pwfbCon">
-                            <el-row class="elcard" v-for="item in ClubMes">  
+                            <el-row class="elcard" v-for="item in ClubMes" :key="item.id">  
                                 <el-card shadow="hover">
                                   <div class="myMsgCon_pic" @click="ToshowClubMore(item.id)"><img :src="item.c_img"/></div>
                                   <p class="club-name" @click="ToshowClubMore(item.id)">{{item.c_name}}</p>

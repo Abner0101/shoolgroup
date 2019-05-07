@@ -2,8 +2,8 @@
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 活动管理</el-breadcrumb-item>
-                <el-breadcrumb-item>活动申请</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 公告管理</el-breadcrumb-item>
+                <el-breadcrumb-item>公告申请</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container" v-if="showask">
@@ -17,6 +17,7 @@
                 <el-form-item label="公告性质" prop="a_nature">
                     <el-select v-model="ruleForm.a_nature" placeholder="请选择活动性质">
                       <el-option label="比赛" value="比赛"></el-option>
+                      <el-option label="新闻" value="新闻"></el-option>
                       <el-option label="招新" value="招新"></el-option>
                       <el-option label="服务" value="服务"></el-option>
                       <el-option label="课外" value="课外"></el-option>
@@ -87,8 +88,7 @@
         <div class="container" v-if="showres">
             <el-button type="primary" @click="reAsk()">继续申请</el-button>
             <el-button type="primary" @click="ToActionlist()">申请详情</el-button>
-            <h1 class="asksus">您已成功申请！</h1>
-            
+            <h1 class="asksus">您已成功申请！</h1> 
         </div>
     </div>
 </template>

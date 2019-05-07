@@ -123,32 +123,32 @@
                 </div>
                 <div class="indexPublic">
                     <div class="indexPublic_head">
-                        本周热议
+                        友情链接
                     </div>
                     <div class="indexPublic_con">
                         <ul class="weekHot">
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
-                            <li><a href="">关注上海车牌竞拍方面的资讯</a><span>29</span></li>
+                            <li><a href="https://jwxt.dgut.edu.cn/jwxt" target="_blank">教务网路管理系统入口</a></li>
+                            <li><a href="http://dgut.co.cnki.net/Login.html" target="_blank">大学生毕业设计（论文）管理系统</a></li>
+                            <li><a href="http://jwc.dgut.edu.cn/jyk/" target="_blank">毕业生调查问卷</a></li>
+                            <li><a href="http://219.222.191.146/defaultnew.aspx" target="_blank">实验室综合管理系统</a></li>
+                            <li><a href="https://syb.dgut.edu.cn/" target="_blank">实践教学管理系统</a></li>
+                            <li><a href="http://219.222.189.79:8080/" target="_blank">自助打印在线验证</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="indexPublic">
                     <div class="indexPublic_head">
-                        友情链接
+                        校园资源
                     </div>
                     <div class="indexPublic_con">
                         <ul class="indexLink">
-                            <li><a href="">拍王淘宝链接</a></li>
-                            <li><a href="">拍王网站</a></li>
-                            <li><a href="">拍王助手</a></li>
-                            <li><a href="">沪牌模拟</a></li>
-                            <li><a href="">拍王合作咨询</a></li>
-                            <li><a href="">快法务</a></li>
-                            <li><a href="">国拍网</a></li>
+                            <li><a href="http://kc.dgut.ulearning.cn/" target="_blank">专业课程</a></li>
+                            <li><a href="http://dglgxy.zlgc2.chaoxing.com/" target="_blank">质量工程</a></li>
+                            <li><a href="http://jpkc.dgut.edu.cn/" target="_blank">精品课程</a></li>
+                            <li><a href="http://jwc.dgut.edu.cn/jxms/" target="_blank">教学名师</a></li>
+                            <li><a href="https://dgut.ulearning.cn/organization/index.html#/index/portal" target="_blank">优学院教学云平台</a></li>
+                            <li><a href="http://gjyj.dgut.edu.cn/" target="_blank">高等教育研究所</a></li>
+                            <li><a href="http://pjb.dgut.edu.cn/itest/itest/login" target="_blank">本科教学工作评建网</a></li>
                         </ul>
                     </div>
                 </div>

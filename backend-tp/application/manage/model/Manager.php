@@ -81,4 +81,31 @@ class Manager extends Common
         return $data;
     }
 
+    public function createData($param){
+        if(!is_null($param['password'])){
+            $param['password'] = user_md5($param['password']);
+            $param['status']=1;
+        }
+        return parent::createData($param);
+    }
+
+    public function editData($param, $id){
+        if(!is_null($param['password'])){
+            $param['password'] = user_md5($param['password']);
+        }
+        return parent::editData($param, $id);
+    }
+
+    public function delData($param){
+        return parent::delDataTrue($param);
+    }
+
+    public function getDataById($param){
+        return parent::getDataById($param);
+    }
+
+    public function getAllDatas(){
+        return parent::getAllDatas();
+    }
+
 }

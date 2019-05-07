@@ -9,16 +9,19 @@ import './assets/css/icon.css';
 import './components/common/directives';
 import "babel-polyfill";
 import common from './assets/js/common.js'
+// import Echats from 'echarts'
 
 Vue.config.productionTip = false
+// Vue.prototype.echarts = Echats
 Vue.use(ElementUI, {
     size: 'small'
 });
 
-Vue.prototype.$axios = axios;
 // 设置全局请求头
 axios.defaults.headers.authKey = localStorage.getItem('m_authKey')
 axios.defaults.headers.sessionId = localStorage.getItem('m_sessionId')
+Vue.prototype.$axios = axios;
+
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // 设置全局公用方法

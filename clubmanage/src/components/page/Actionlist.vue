@@ -2,15 +2,15 @@
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 活动管理</el-breadcrumb-item>
-                <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-notification"></i> 公告管理</el-breadcrumb-item>
+                <el-breadcrumb-item>公告列表</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
             <el-table :data="tableData" style="width: 100%">
                 <el-table-column
                   label="活动日期"
-                  width="180">
+                  width="150">
                   <template slot-scope="scope">
                     <i class="el-icon-time"></i>
                     <span style="margin-left: 10px">{{ scope.row.a_hdday }}</span>
@@ -19,7 +19,7 @@
 
                 <el-table-column
                   label="活动主题"
-                  width="180">
+                  width="250">
                   <template slot-scope="scope">
                     <el-popover trigger="hover" placement="top">
                       <p>申请时间: {{ scope.row.create_time }}</p>
@@ -32,7 +32,7 @@
 
                 <el-table-column
                   label="活动性质"
-                  width="180">
+                  width="100">
                   <template slot-scope="scope">
                       <el-tag size="medium" type="warning">{{ scope.row.a_nature}}</el-tag>
                   </template>
@@ -40,7 +40,7 @@
 
                 <el-table-column
                   label="活动地点"
-                  width="180">
+                  width="100">
                   <template slot-scope="scope">
                     <i class="el-icon-lx-location"></i>
                     <span style="margin-left: 10px">{{ scope.row.a_hdplace }}</span>
@@ -49,10 +49,19 @@
 
                 <el-table-column
                   label="负责人"
-                  width="180">
+                  width="120">
                   <template slot-scope="scope">
                     <i class="el-icon-lx-profile"></i>
                     <span style="margin-left: 10px">{{ scope.row.a_manager }}</span>
+                  </template>
+                </el-table-column>
+
+                <el-table-column
+                  label="参加人数"
+                  width="120">
+                  <template slot-scope="scope">
+                    <i class="el-icon-lx-favor"></i>
+                    <span style="margin-left: 10px">{{ scope.row.likenum }}</span>
                   </template>
                 </el-table-column>
 
@@ -284,6 +293,24 @@
                     let temp =[];
                     ret.data.forEach((val)=>{
                         if(val.clubid==localStorage.getItem('departId')){
+                            let num = 0;
+                            this.$axios.get('http://www.clubs.org/index.php/getAllLike')
+                            .then((Likeres)=>{
+                              let Likeret = Likeres.data;
+                              if(Likeret.code == 200){
+                                Likeret.data.forEach((likeval)=>{
+                                  if(likeval.l_actionId == val.id){
+                                    num++;
+                                  }
+                                })
+                              }else{
+                                this.common.toastMsg('信息出错','warn');
+                              }
+                            })
+                            .then(()=>{
+                              val.likenum=num;
+                            });
+                            
                             val.create_time=this.common.toDate(val.create_time);
                             temp.push(val);
                         }
@@ -292,6 +319,9 @@
                 }else{
                     this.common.toastMsg('信息出错','warn');
                 }
+            })
+            .then(()=>{
+              console.log(this.tableData);
             });
         },
         resetForm(formName) {
@@ -305,9 +335,11 @@
           return false;
         },
     },
-
+    created(){
+      this.getActionMes();
+    },
     mounted(){
-        this.getActionMes();
+        
     },
     mixins:[http],
 

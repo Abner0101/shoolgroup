@@ -14,13 +14,14 @@ Vue.config.productionTip = false
 Vue.use(ElementUI, {
     size: 'small'
 });
-Vue.prototype.$axios = axios;
+
+//跨域解决
+axios.defaults.withCredentials = true
 // 设置全局请求头
 axios.defaults.headers.authKey = localStorage.getItem('c_authKey')
 axios.defaults.headers.sessionId = localStorage.getItem('c_sessionId')
-//跨域解决
-axios.defaults.withCredentials = true
 
+Vue.prototype.$axios = axios;
 // 设置全局公用方法
 Vue.prototype.common = common;
 

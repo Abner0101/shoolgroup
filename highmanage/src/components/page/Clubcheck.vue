@@ -160,7 +160,8 @@
             Nopasscheck(id){
                 let params={
                     id:id,
-                    ispass:0
+                    ispass:0,
+                    beizhu:this.Askmess.beizhu
                 }
                 this.$axios
                 .post('http://www.clubs.org/index.php/' + 'M_editClub',params)
@@ -243,7 +244,8 @@
                 let params={
                     id:this.Askmess.id,
                     c_boss:this.Askmess.c_createrId.m_name,
-                    ispass:1
+                    ispass:1,
+                    beizhu:this.Askmess.beizhu
                 };
                 return this.$axios.post('http://www.clubs.org/index.php/' + 'M_editClub',params);
             },

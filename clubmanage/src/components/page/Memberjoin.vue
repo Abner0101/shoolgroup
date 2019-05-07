@@ -151,41 +151,40 @@
                     let ret=res.data;
                     // console.log(ret);
                     if(ret.code==200){ 
-                        //清空列表重新加载
-                        // if(ruleForm.role=="会长"){
-                        //     if(ruleForm.memberId.clue_right==1){
-                        //         this.common.toastMsg("你已是社团管理员",'warning');
-                        //     }
-                        //     let member={
-                        //         id:this.ruleForm.memberId.id,
-                        //         clue_right:1,
-                        //         depart:this.ruleForm.clubId,
-                        //         role:"会长"
-                        //     };
-                        //     this.$axios.post('http://www.clubs.org/index.php/' + 'C_editMember',member)
-                        //     .then((memberres)=>{
-                        //         let memberret=memberres.data;
-                        //         if(memberret.code == 200){
-                        //             this.dialogFormVisible=false;
-                        //             this.common.toastMsg("审核通过",'success');
-                        //             this.wait=[];
-                        //             this.pass=[];
-                        //             this.nopass=[];
-                        //             this.getAllTable();
-                        //         }else if(memberret.code == 101){
-                        //             this.handleError();
-                        //         }else{
-                        //             this.common.toastMsg(ret.error,'warning');
-                        //         }
-                        //     });
-                        // }else{
+                        // 清空列表重新加载
+                        if(this.ruleForm.role=="会长" || this.ruleForm.role=="社团干事" || this.ruleForm.role=="副会长"){
+                            // if(ruleForm.memberId.clue_right==1){
+                            //     this.common.toastMsg("你已是社团管理员",'warning');
+                            // }
+                            let member={
+                                id:this.ruleForm.memberId.id,
+                                depart:this.ruleForm.clubId,
+                                role:this.ruleForm.role
+                            };
+                            this.$axios.post('http://www.clubs.org/index.php/' + 'C_editMember',member)
+                            .then((memberres)=>{
+                                let memberret=memberres.data;
+                                if(memberret.code == 200){
+                                    this.dialogFormVisible=false;
+                                    this.common.toastMsg("审核通过",'success');
+                                    this.wait=[];
+                                    this.pass=[];
+                                    this.nopass=[];
+                                    this.getAllTable();
+                                }else if(memberret.code == 101){
+                                    this.handleError();
+                                }else{
+                                    this.common.toastMsg(ret.error,'warning');
+                                }
+                            });
+                        }else{
                             this.dialogFormVisible=false;
                             this.common.toastMsg("审核通过",'success');
                             this.wait=[];
                             this.pass=[];
                             this.nopass=[];
                             this.getAllTable();
-                        // } 
+                        } 
                     }
                     else if(ret.code == 101){
                         this.handleError();

@@ -58,6 +58,28 @@ class Index extends Common
             return resultArray($result);
     }
 
+    public function getEquipById(){
+        $param = $this->param;
+        $equipModel = model('Equip');
+        $result = $equipModel->getDataById($param);
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
+    public function getAllEquip(){
+        $param = $this->param;
+        $equipModel = model('Equip');
+        $result = $equipModel->getAllDatas();
+        // p($result);
+        if(isset($param['callback']))
+            return resultJsonp($result);
+        else
+            return resultArray($result);
+    }
+
 
 
 }

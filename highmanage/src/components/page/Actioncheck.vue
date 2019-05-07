@@ -88,7 +88,7 @@
                     </el-form-item>
                         
                     <el-form-item label="备注：">
-                        {{ruleForm.beizhu}}
+                        <el-input type="textarea" v-model="ruleForm.beizhu" style="width:620px;"></el-input>
                     </el-form-item>
 
 
@@ -108,6 +108,7 @@
     import draggable from 'vuedraggable'
     import http from '../../assets/js/http.js'
     export default {
+    name:'Actioncheck',
     data() {
       return {
         dragOptions:{
@@ -182,7 +183,9 @@
         Nopasscheck(ruleForm){
             let params={
                 id:ruleForm.id,
-                ispass:0
+                a_hdchecker:localStorage.getItem('username'),
+                ispass:0,
+                beizhu:this.ruleForm.beizhu
             }
             this.$axios
             .post('http://www.clubs.org/index.php/' + 'M_editAction',params)

@@ -64,8 +64,8 @@
                                 // localStorage.setItem('ms_username',respose.data.userInfo.m_name);
                                 setTimeout(()=>{
                                     // window.location.reload();
-                                    this.$router.push('/');
-                                },1500);
+                                    this.$router.push('/dashboard');
+                                },1000);
                             }else{
                                 this.common.toastMsg(respose.error,'error');
                             }
@@ -92,18 +92,20 @@
         width:100%;
         line-height: 50px;
         text-align: center;
+        letter-spacing: 2px;
         font-size:20px;
-        color: #fff;
+        font-weight: bold;
+        color: #409EFF;
         border-bottom: 1px solid #ddd;
     }
     .ms-login{
         position: absolute;
         left:50%;
         top:50%;
-        width:350px;
+        width:380px;
         margin:-190px 0 0 -175px;
         border-radius: 5px;
-        background: rgba(255,255,255, 0.3);
+        background: rgba(255,255,255, 0.8);
         overflow: hidden;
     }
     .ms-content{
@@ -116,10 +118,11 @@
         width:100%;
         height:36px;
         margin-bottom: 10px;
+        margin-top: 15px;
     }
     .login-tips{
         font-size:12px;
         line-height:30px;
-        color:#fff;
+        color:#409EFF;
     }
 </style>

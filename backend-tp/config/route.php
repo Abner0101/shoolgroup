@@ -57,21 +57,40 @@ Route::get('getAllOtherComment','home/index/getAllOtherComment');
 
 //社团管理后台
 Route::post('C_login', 'club/base/login');//社长学号登录
+
 Route::post('addAction','club/action/addAction');//申请活动、
 Route::post('editAction','club/action/editAction');//编辑活动
 Route::get('delAction','club/action/delAction');//取消活动
 Route::get('getAction','club/index/getActionById');//获取活动信息
 Route::get('getAllAction','club/index/getAllAction');//获取活动列表
+
 Route::post('C_editTable','club/table/editTable');//编辑加入社团表信息
 Route::get('C_delTable','club/table/delTable');//删除、退出社团
 Route::post('C_editMember','club/member/editMember');//编辑会员信息
 
+Route::post('addEquip','club/equip/addEquip'); //添加申请
+Route::post('editEquip','club/equip/editEquip'); // 编辑申请信息
+Route::get('delEquip','club/equip/delEquip'); //删除申请信息
+Route::get('getEquip','club/index/getEquipById'); //获取申请信息
+Route::get('getAllEquip','club/index/getAllEquip'); //获取申请列表
+
 
 //超级管理员后台
-Route::post('M_login', 'manage/base/login');//社长学号登录
+Route::post('M_login', 'manage/base/login');//超级管理员登录
 Route::post('M_editClub','manage/club/editClub');//编辑社团信息
 Route::get('M_delClub','manage/club/delClub');//删除社团
 Route::post('M_addTable','manage/table/addTable');//增添申请表 
-Route::post('M_editMember','manage/member/editMember');//编辑会员信息    
+Route::post('M_editMember','manage/member/editMember');//编辑会员信息   
+Route::get('M_delMember','manage/member/delMember');//删除会员信息 
 Route::post('M_editAction','manage/action/editAction');//编辑活动信息  
-Route::get('M_delAction','manage/action/delAction');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+Route::get('M_delAction','manage/action/delAction');    
+Route::post('M_editEquip','manage/equip/editEquip');
+Route::get('M_delEquip','manage/equip/delEquip');
+
+Route::post('addManager','manage/manager/addManager');
+Route::post('editManager','manage/manager/editManager');
+Route::get('delManager','manage/manager/delManager');
+Route::get('getManager','manage/index/getManagerById');
+Route::get('getAllManager','manage/index/getAllManager');    
+
+Route::get('M_delComment','manage/comment/delComment');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

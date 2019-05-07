@@ -6,12 +6,13 @@
             <ul class="headNav">
                 <li>
                     <a>
-                        <router-link to="/">社团服务</router-link>
+                        <router-link to="/">社团中心</router-link>
                     </a>
                 </li>
                 <li>
-                    <a>
-                        <router-link to="/Topic">莞工论坛</router-link>
+                    <a href="https://720yun.com/t/67b27wbfw1i?scene_id=75929">
+                        校园导航
+                        <!-- <router-link to="/Topic">莞工论坛</router-link> -->
                     </a>
                 </li>
             </ul>

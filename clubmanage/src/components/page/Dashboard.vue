@@ -4,10 +4,10 @@
             <el-col :span="8">
                 <el-card shadow="hover" class="mgb20" style="height:252px;">
                     <div class="user-info">
-                        <img src="../../assets/img/img.jpg" class="user-avator" alt="">
+                        <img :src="memberMes.m_img" class="user-avator" alt="">
                         <div class="user-info-cont">
                             <div class="user-info-name">{{name}}</div>
-                            <div>{{role}}</div>
+                            <div>{{memberMes.role}}</div>
                         </div>
                     </div>
                     <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
@@ -34,8 +34,8 @@
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
-                                    <div>用户访问量</div>
+                                    <div class="grid-num">{{tableNum}}</div>
+                                    <div>会员数量</div>
                                 </div>
                             </div>
                         </el-card>
@@ -45,8 +45,8 @@
                             <div class="grid-content grid-con-2">
                                 <i class="el-icon-lx-notice grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div class="grid-num">{{actionNum}}</div>
+                                    <div>发布公告</div>
                                 </div>
                             </div>
                         </el-card>
@@ -54,10 +54,10 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-goods grid-con-icon"></i>
+                                <i class="el-icon-lx-text grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div class="grid-num">{{equipNum}}</div>
+                                    <div>申请表</div>
                                 </div>
                             </div>
                         </el-card>
@@ -111,7 +111,18 @@
         name: 'dashboard',
         data() {
             return {
-                name: localStorage.getItem('ms_username'),
+                memberMes:'',
+                imgUrl:'http://www.clubs.org',
+                name: localStorage.getItem('m_name'),
+                //会员
+                tableMes:'',
+                tableNum:'',
+                //公告
+                actionNum:'',
+                actionMes:'',
+                //申请
+                equipNum:'',
+                equipMes:'',
                 todoList: [{
                         title: '今天要修复100个bug',
                         status: false,
@@ -187,9 +198,9 @@
             Schart
         },
         computed: {
-            role() {
-                return this.name === 'admin' ? '超级管理员' : '普通用户';
-            }
+            // role() {
+            //     return this.memberMes. === 'admin' ? '超级管理员' : '普通用户';
+            // }
         },
         created(){
             this.handleListener();
@@ -223,7 +234,96 @@
             renderChart(){
                 this.$refs.bar.renderChart();
                 this.$refs.line.renderChart();
+            },
+            // getClubMes(){
+            //     this.$axios
+            //     .get('http://www.clubs.org/index.php/' + 'getClub',{params:{id:localStorage.getItem('departId')}})
+            //     .then((res)=>{
+            //         let ret =res.data;
+            //         if(ret.code==200){
+            //             this.headername=ret.data.c_name;
+            //         }else{
+            //             this.common.toastMsg(ret.error,'error'); 
+            //         }
+            //     })
+            // },
+            getMemberMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getMember',{params:{id:localStorage.getItem('m_id')}})
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        ret.data.m_img=this.imgUrl+ret.data.m_img;
+                        this.memberMes=ret.data;
+                    }else{
+                        this.common.toastMsg(ret.error,'error'); 
+                    }
+                })
+            },
+            getTableMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getAllTable')
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        let temp =[];
+                        ret.data.forEach((val)=>{
+                            if(val.clubId == localStorage.getItem('departId') && val.station == 1){
+                                temp.push(val);
+                            }
+                        });
+                        this.tableNum = temp.length;
+                        this.tableMes=temp;
+                    }else{
+                        this.common.toastMsg(ret.error,'error'); 
+                    }
+                })
+            },
+            getActionMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getAllAction')
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        let temp =[];
+                        ret.data.forEach((val)=>{
+                            if(val.clubid == localStorage.getItem('departId') && val.ispass == 1){
+                                temp.push(val);
+                            }
+                        });
+                        this.actionNum = temp.length;
+                        this.actionMes=temp;
+                    }else{
+                        this.common.toastMsg(ret.error,'error'); 
+                    }
+                })
+            },
+            getEquipMes(){
+                this.$axios
+                .get('http://www.clubs.org/index.php/' + 'getAllEquip')
+                .then((res)=>{
+                    let ret =res.data;
+                    if(ret.code==200){
+                        let temp =[];
+                        ret.data.forEach((val)=>{
+                            if(val.e_clubId == localStorage.getItem('departId') ){
+                                temp.push(val);
+                            }
+                        });
+                        this.equipNum = temp.length;
+                        this.equipMes=temp;
+                    }else{
+                        this.common.toastMsg(ret.error,'error'); 
+                    }
+                })
             }
+        },
+
+        mounted(){
+            this.getMemberMes();
+            this.getTableMes();
+            this.getActionMes();
+            this.getEquipMes();
         }
     }
 

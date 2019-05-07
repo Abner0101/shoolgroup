@@ -152,7 +152,9 @@
                        this.common.toastMsg('信息出错','warn');
                     }
                 });
-                this.ruleForm.clubId=Number(this.$route.query.id);
+                if(this.$route.query.id){
+                    this.ruleForm.clubId=Number(this.$route.query.id);
+                }  
             },
             submitForm(formName){
                 this.$refs[formName].validate((valid) => {

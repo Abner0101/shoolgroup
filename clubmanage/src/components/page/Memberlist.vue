@@ -18,7 +18,7 @@
                 </el-table-column>
 
                 <el-table-column
-                  label="会员姓名"
+                  label="成员姓名"
                   width="180">
                   <template slot-scope="scope">
                         <el-tag size="medium">{{ scope.row.t_name}}</el-tag>
@@ -26,7 +26,7 @@
                 </el-table-column>
 
                 <el-table-column
-                  label="会员角色"
+                  label="成员角色"
                   width="180">
                   <template slot-scope="scope">
                       <el-tag size="medium" type="success">{{ scope.row.role}}</el-tag>
@@ -37,11 +37,11 @@
                   <template slot-scope="scope">
                     <el-button
                       size="mini"
-                      @click="handleMore(scope.$index, scope.row)">会员信息</el-button>
+                      @click="handleMore(scope.$index, scope.row)">成员信息</el-button>
                     <el-button
                       size="mini"
                       type="danger"
-                      @click="handleDelete(scope.$index, scope.row)">删除会员</el-button>
+                      @click="handleDelete(scope.$index, scope.row)">删除成员</el-button>
                   </template>
                 </el-table-column>
             </el-table>

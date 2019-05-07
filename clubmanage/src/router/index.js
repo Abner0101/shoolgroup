@@ -20,6 +20,11 @@ export default new Router({
                     meta: { title: '系统首页' }
                 },
                 {
+                    path: '/about',
+                    component: resolve => require(['../components/page/About.vue'], resolve),
+                    meta: { title: '关于社团' }
+                },
+                {
                     path: '/actionask',
                     component: resolve => require(['../components/page/Actionask.vue'], resolve),
                     meta: { title: '活动申请' }
@@ -28,6 +33,16 @@ export default new Router({
                     path: '/actionlist',
                     component: resolve => require(['../components/page/Actionlist.vue'], resolve),
                     meta: { title: '活动列表' }
+                },
+                {
+                    path: '/equipask',
+                    component: resolve => require(['../components/page/Equipask.vue'], resolve),
+                    meta: { title: '添加申请' }
+                },
+                {
+                    path: '/equiplist',
+                    component: resolve => require(['../components/page/Equiplist.vue'], resolve),
+                    meta: { title: '申请列表' }
                 },
                 {
                     path: '/memberlist',

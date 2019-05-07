@@ -7,7 +7,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/login'
         },
         {
             path: '/',
@@ -16,8 +16,23 @@ export default new Router({
             children:[
                 {
                     path: '/dashboard',
-                    component: resolve => require(['../components/page/Dashboard.vue'], resolve),
+                    component: resolve => require(['../components/page/DateCenter.vue'], resolve),
                     meta: { title: '系统首页' }
+                },
+                {
+                    path: '/manager',
+                    component: resolve => require(['../components/page/Manager.vue'], resolve),
+                    meta: { title: '权限管理' }
+                },
+                {
+                    path: '/memberlist',
+                    component: resolve => require(['../components/page/Memberlist.vue'], resolve),
+                    meta: { title: '会员管理' }
+                },
+                {
+                    path: 'commentlist',
+                    component: resolve => require(['../components/page/Commentlist.vue'], resolve),
+                    meta: { title: '评论列表' }
                 },
                 {
                     path: '/clubcheck',
@@ -28,6 +43,16 @@ export default new Router({
                     path: '/clubtable',
                     component: resolve => require(['../components/page/Clubtable.vue'], resolve),
                     meta: { title: '社团列表' }
+                },
+                {
+                    path: '/equipcheck',
+                    component: resolve => require(['../components/page/Equipcheck.vue'], resolve),
+                    meta: { title: '申请审核' }
+                },
+                {
+                    path: '/equiplist',
+                    component: resolve => require(['../components/page/Equiplist.vue'], resolve),
+                    meta: { title: '申请列表' }
                 },
                 {
                     path: '/actioncheck',
