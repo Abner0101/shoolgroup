@@ -7,7 +7,9 @@
         </div>
         <div class="container container-H">
             <div class="home_self">
-                <img :src="clubMes.c_img" />
+                <div class="baseCon">
+                    <img :src="clubMes.c_img"/>
+                </div>
             </div>
             <div class="home_name">
                 <p>{{clubMes.c_name}}</p>
@@ -41,11 +43,38 @@
         data() {
             return{
                 clubMes:'',
-                imgUrl:'http://www.clubs.org',
                 formLabelWidth:'120px',
+
+                imgUrl:'http://www.clubs.org',
+                editImgSrc:'',
+                Header:{
+                    authkey:localStorage.getItem('c_authKey'),
+                    sessionid:localStorage.getItem('c_sessionId')
+                },
+                Image:{
+                    id:localStorage.getItem('departId'),
+                    c_img:'',
+                },
             }
         },
         methods:{
+            //头像上传前触发函数
+            beforeEditImgUpload(file){
+              this.editImgSrc = window.URL.createObjectURL(file);
+              this.Image.c_img = file;
+              // console.log(this.memberMes);
+              // return false;
+            },
+            //头像上传成功触发函数
+            handleAvatarSuccess(res, file) {
+              if(res.code == 200){
+                this.getMember();
+                this.common.toastMsg('上传成功','success');
+              }else{
+                // console.log(res.code);
+                this.handleError();
+              }  
+            },
             getClubMes(){
                 this.$axios
                 .get('http://www.clubs.org/index.php/' + 'getClub',{params:{id:localStorage.getItem('departId')}})
@@ -53,6 +82,7 @@
                     let ret =res.data;
                     if(ret.code == 200){
                         ret.data.c_img=this.imgUrl+ret.data.c_img;
+                        // this.editImgSrc=this.imgUrl+ret.data.c_img;
                         this.clubMes=ret.data;
                     }else{
                         this.common.toastMsg(ret.error,'error'); 
@@ -68,6 +98,31 @@
 </script>
 
 <style scoped>
+    /* .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 40px;
+        color: #8c939d;
+        width: 250px;
+        height: 250px;
+        line-height: 250px;
+        text-align: center;
+    }
+    .avatar {
+        width: 250px;
+        height: 250px;
+        display: block;
+    } */
     .home_self{
         width: 168px;
         height: 168px;

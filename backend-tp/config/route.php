@@ -74,6 +74,8 @@ Route::get('delEquip','club/equip/delEquip'); //删除申请信息
 Route::get('getEquip','club/index/getEquipById'); //获取申请信息
 Route::get('getAllEquip','club/index/getAllEquip'); //获取申请列表
 
+Route::post('C_editClub','club/club/editClub');//修改社团信息
+
 
 //超级管理员后台
 Route::post('M_login', 'manage/base/login');//超级管理员登录

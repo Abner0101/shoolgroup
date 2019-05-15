@@ -10,7 +10,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://720yun.com/t/67b27wbfw1i?scene_id=75929">
+                    <a href="https://720yun.com/t/67b27wbfw1i?scene_id=75929" target="_blank">
                         校园导航
                         <!-- <router-link to="/Topic">莞工论坛</router-link> -->
                     </a>

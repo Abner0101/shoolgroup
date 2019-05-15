@@ -13,6 +13,7 @@ use think\Request;
 class Common extends Controller
 {
     public $param;
+    
     public function _initialize()
     {
         parent::_initialize();

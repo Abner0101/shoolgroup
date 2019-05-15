@@ -40,7 +40,7 @@
 
                 <el-table-column
                   label="活动地点"
-                  width="180">
+                  width="150">
                   <template slot-scope="scope">
                     <i class="el-icon-lx-location"></i>
                     <span style="margin-left: 10px">{{ scope.row.a_hdplace }}</span>
@@ -49,7 +49,7 @@
 
                 <el-table-column
                   label="审核进度"
-                  width="180">
+                  width="150">
                   <template slot-scope="scope">
                     <el-tag size="medium" type="success" v-if="scope.row.ispass==1">审核通过</el-tag>
                     <el-tag size="medium" type="info" v-if="scope.row.ispass==2">审核中</el-tag>
@@ -59,7 +59,7 @@
 
                 <el-table-column
                   label="是否轮播"
-                  width="180">
+                  width="100">
                   <template slot-scope="scope">
                     <el-button type="info" icon="el-icon-arrow-right" round v-if="scope.row.isshow==0 && scope.row.ispass==1" @click="ToShow(scope.row)">
                     否

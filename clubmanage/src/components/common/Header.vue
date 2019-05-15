@@ -68,8 +68,8 @@
             handleCommand(command) {
                 if(command == 'loginout'){
                     localStorage.removeItem('m_name');
-                    localStorage.removeItem('authKey');
-                    localStorage.removeItem('sessionId');
+                    localStorage.removeItem('c_authKey');
+                    localStorage.removeItem('c_sessionId');
                     localStorage.removeItem('m_id');
                     localStorage.removeItem('departId');
                     localStorage.removeItem('right');
